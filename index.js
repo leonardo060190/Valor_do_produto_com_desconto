@@ -1,21 +1,16 @@
 function calcular(){
         // faz a verificação de cada função se for verdadeira continua se for falso para. 
     if(validaProduto() && validaValor() && validaQuantidade() && validaDesconto()){
-        // variaveis para pegar o valor digitado no campo.
-    let preco = valor.value;
-    let quantia = quantidade.value;
-    let descontoProduto = indesconto.value;
         // variavel que pega o valor da multiplicação do preço e da quantia.
-    let totalSemDesconto = preco * quantia;
+    let totalSemDesconto = parseFloat(valor.value) * parseFloat(quantidade.value);
         // variavel que pega o totalSemDesconto e multiplica pelo descontoProduto, depois divide por 100
         // para obter de valor do desconto.
-    let totalDoDesconto = (totalSemDesconto * descontoProduto) / 100;
+    let totalDoDesconto = totalSemDesconto * parseFloat(indesconto.value) / 100;
         // variavel que pega o valor totalSemDesconto e subtrai o totalDoDesconto pra 
         // obter o valor real do produto.
     let resultado = totalSemDesconto - totalDoDesconto;
         // mostra no campo o valo real do produto. 
     desconto.value = (`R$ ${resultado.toFixed(2)}`);
-
     };
 };
 //  função para validar o campo do produto.
